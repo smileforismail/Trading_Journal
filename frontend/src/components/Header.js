@@ -7,16 +7,16 @@ import Navbar from "react-bootstrap/Navbar";
 
 const Header = () => {
 	// remove underline from link
-	const noUnderline = { textDecoration: "none" };
+	const brandStyle = {
+		textDecoration: "none",
+	};
 
 	return (
 		<Navbar className="navbar navbar-expand-lg navbar-dark bg-dark text-center">
 			<Container>
-				<Link to={"/"} style={noUnderline}>
-					<Navbar.Brand>
-						<h1>Trading Journal</h1>
-					</Navbar.Brand>
-				</Link>
+				<Navbar.Brand href="/">
+					<h1>Trading Journal</h1>
+				</Navbar.Brand>
 			</Container>
 		</Navbar>
 	);

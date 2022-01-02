@@ -8,6 +8,7 @@ import Header from "./components/Header.js";
 import Footer from "./components/Footer.js";
 import HomeScreen from "./screens/HomeScreen.js";
 import NewEntryScreen from "./screens/NewEntryScreen.js";
+import AllTradesScreen from "./screens/AllTradesScreen.js";
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 				<Routes>
 					<Route exact path="/" element={<HomeScreen />} />
 					<Route path="/newEntry" element={<NewEntryScreen />} />
+					<Route path="/trades" element={<AllTradesScreen />} />
 				</Routes>
 			</main>
 
