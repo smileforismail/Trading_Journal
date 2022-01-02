@@ -1,9 +1,19 @@
 import React from "react";
+// components
+import Header from "./components/Header.js";
+import HomeScreen from "./screens/HomeScreen.js";
+import Footer from "./components/Footer.js";
 
 function App() {
 	return (
 		<div>
-			<h1>Trading Journal</h1>
+			<Header />
+
+			<main>
+				<HomeScreen />
+			</main>
+
+			<Footer />
 		</div>
 	);
 }
