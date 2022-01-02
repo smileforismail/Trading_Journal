@@ -1,5 +1,5 @@
 import React from "react";
-// routin
+// routing
 import { Link } from "react-router-dom";
 // components
 import HomeTable from "../components/HomeTable.js";
