@@ -14,7 +14,7 @@ const HomeTable = () => {
 				</Col>
 			</Row>
 
-			<Table className="table-bordered table-hover table-striped table-sm">
+			<Table className="table-bordered table-striped table-sm">
 				<thead className="table-dark">
 					<tr>
 						<th></th>
