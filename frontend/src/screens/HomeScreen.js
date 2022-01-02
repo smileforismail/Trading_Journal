@@ -1,4 +1,6 @@
 import React from "react";
+// routin
+import { Link } from "react-router-dom";
 // components
 import HomeTable from "../components/HomeTable.js";
 // from react-bootstrap
@@ -15,14 +17,18 @@ const HomeScreen = () => {
 				<Container>
 					<Row className="pt-4">
 						<Col className="text-end">
-							<Button type="button" className="btn btn-dark btn-lg rounded-0">
-								New Entry
-							</Button>
+							<Link to="/newEntry">
+								<Button type="button" className="btn btn-dark btn-lg rounded-0">
+									New Entry
+								</Button>
+							</Link>
 						</Col>
 						<Col>
-							<Button type="button" className="btn btn-dark btn-lg rounded-0">
-								All Trades
-							</Button>
+							<Link to="/trades">
+								<Button type="button" className="btn btn-dark btn-lg rounded-0">
+									All Trades
+								</Button>
+							</Link>
 						</Col>
 					</Row>
 				</Container>
