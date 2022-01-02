@@ -79,6 +79,16 @@ const NewEntryScreen = () => {
 									</Row>
 								</Form.Group>
 
+								{/* Profit */}
+								<Form.Group className="mb-3">
+									<Row>
+										<Col>
+											<Form.Label>Profit:</Form.Label>
+											<Form.Control type="number" placeholder="$0.00" />
+										</Col>
+									</Row>
+								</Form.Group>
+
 								{/* Note */}
 								<Form.Group className="mb-3">
 									<Row>
