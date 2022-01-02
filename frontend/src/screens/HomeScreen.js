@@ -19,14 +19,14 @@ const HomeScreen = () => {
 						<Col className="text-end">
 							<Link to="/newEntry">
 								<Button type="button" className="btn rounded-0">
-									New Entry
+									Add New Trade
 								</Button>
 							</Link>
 						</Col>
 						<Col>
 							<Link to="/trades">
 								<Button type="button" className="btn rounded-0">
-									All Trades
+									View All Trades
 								</Button>
 							</Link>
 						</Col>

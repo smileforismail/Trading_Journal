@@ -8,7 +8,7 @@ import Table from "react-bootstrap/Table";
 const HomeTable = () => {
 	return (
 		<Container>
-			<Row className=" mt-5 mb-3 justify-content-center">
+			<Row className=" mt-5 mb-4 justify-content-center">
 				<Col className="col-8">
 					<h1 className="text-center">Track Record</h1>
 
