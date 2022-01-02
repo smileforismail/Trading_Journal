@@ -94,13 +94,18 @@ const NewEntryScreen = () => {
 									<Row>
 										<Col>
 											<Form.Label>Note:</Form.Label>
-											<Form.Control as={"textarea"} rows="3" placeholder="comment about trade..." />
+											<Form.Control
+												as={"textarea"}
+												rows="3"
+												placeholder="comment about trade..."
+												required={true}
+											/>
 										</Col>
 									</Row>
 								</Form.Group>
 
 								<div class="d-grid gap-2">
-									<Button class="btn btn-primary" type="button">
+									<Button class="btn btn-primary" type="submit">
 										Add Entry
 									</Button>
 								</div>

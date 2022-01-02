@@ -18,14 +18,14 @@ const HomeScreen = () => {
 					<Row className="pt-4">
 						<Col className="text-end">
 							<Link to="/newEntry">
-								<Button type="button" className="btn btn-dark btn-lg rounded-0">
+								<Button type="button" className="btn rounded-0">
 									New Entry
 								</Button>
 							</Link>
 						</Col>
 						<Col>
 							<Link to="/trades">
-								<Button type="button" className="btn btn-dark btn-lg rounded-0">
+								<Button type="button" className="btn rounded-0">
 									All Trades
 								</Button>
 							</Link>

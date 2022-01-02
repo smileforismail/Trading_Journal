@@ -9,6 +9,7 @@ import Footer from "./components/Footer.js";
 import HomeScreen from "./screens/HomeScreen.js";
 import NewEntryScreen from "./screens/NewEntryScreen.js";
 import AllTradesScreen from "./screens/AllTradesScreen.js";
+import SingleTradeScreen from "./screens/SingleTradeScreen.js";
 
 function App() {
 	return (
@@ -20,6 +21,7 @@ function App() {
 					<Route exact path="/" element={<HomeScreen />} />
 					<Route path="/newEntry" element={<NewEntryScreen />} />
 					<Route path="/trades" element={<AllTradesScreen />} />
+					<Route path="/trades/:id" element={<SingleTradeScreen />} />
 				</Routes>
 			</main>
 

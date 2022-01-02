@@ -14,17 +14,16 @@ const AllTradesScreen = () => {
 	return (
 		<Container>
 			<Row className="justify-content-center">
-				<Col className="col-7">
-
-                    {/* Back button */}
+				<Col className="col-8">
+					{/* Back button */}
 					<Link to={"/"}>
 						<Button type="button" className="btn btn-dark btn-lg rounded-0 mt-4">
 							Back
 						</Button>
 					</Link>
 
-                    {/* Page Header */}
-                    <h1 className="text-center mt-3 mb-4">All Trades</h1>
+					{/* Page Header */}
+					<h1 className="text-center mt-3 mb-4">All Trades</h1>
 
 					<ListGroup className="list-group-flush">
 						{/* Header List */}
@@ -45,7 +44,7 @@ const AllTradesScreen = () => {
 										<Col className="text-start">{trade.profit > 0 ? "Profit" : "Loss"}</Col>
 										<Col className="text-center">{trade.date}</Col>
 										<Col className="text-end">
-											<Link to={`/trade/${trade.id}`}>View</Link>
+											<Link to={`/trades/${trade.id}`}>View</Link>
 										</Col>
 									</Row>
 								</ListGroup.Item>
