@@ -3,6 +3,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 // from react-bootstrap
 import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import Navbar from "react-bootstrap/Navbar";
 
 const Header = () => {
@@ -12,10 +14,10 @@ const Header = () => {
 	};
 
 	return (
-		<Navbar className="navbar navbar-expand-lg navbar-dark bg-dark text-center">
-			<Container>
-				<Navbar.Brand href="/">
-					<h1>Trading Journal</h1>
+		<Navbar className="navbar navbar-expand-lg navbar-dark bg-dark ">
+			<Container >
+				<Navbar.Brand href="/" className="pt-2">
+					<h1 >Trading Journal</h1>
 				</Navbar.Brand>
 			</Container>
 		</Navbar>
