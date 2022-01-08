@@ -1,6 +1,5 @@
 const trades = [
 	{
-		id: "1",
 		date: "01/12/2021",
 		accountBalance: "200.00",
 		currencyPair: "AUD/USD",
@@ -10,7 +9,6 @@ const trades = [
 		comment: "First trade of the month.",
 	},
 	{
-		id: "2",
 		date: "02/12/2021",
 		accountBalance: "202.88",
 		currencyPair: "GBP/USD",
@@ -20,7 +18,6 @@ const trades = [
 		comment: "Second trade of the month.",
 	},
 	{
-		id: "3",
 		date: "02/12/2021",
 		accountBalance: "202.88",
 		currencyPair: "EUR/USD",
@@ -30,7 +27,6 @@ const trades = [
 		comment: "Third trade of the month.",
 	},
 	{
-		id: "4",
 		date: "03/12/2021",
 		accountBalance: "197.8",
 		currencyPair: "AUD/USD",
@@ -40,7 +36,6 @@ const trades = [
 		comment: "Forth trade of the month.",
 	},
 	{
-		id: "5",
 		date: "04/12/2021",
 		accountBalance: "203.13",
 		currencyPair: "USD/CAD",
