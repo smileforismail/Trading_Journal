@@ -33,7 +33,7 @@ const NewEntryScreen = () => {
 										<Col>
 											<Form.Label>Account Balance:</Form.Label>
 
-											<Form.Control type="number" placeholder="$0.00" />
+											<Form.Control type="number" placeholder="$0.00" name="accountBalance"/>
 										</Col>
 									</Row>
 								</Form.Group>
@@ -44,7 +44,7 @@ const NewEntryScreen = () => {
 										<Col>
 											<Form.Label>Currency Pair:</Form.Label>
 
-											<Form.Select>
+											<Form.Select >
 												<option value="1">AUD/USD</option>
 												<option value="2">GBP/USD</option>
 												<option value="3">EUR/USD</option>
