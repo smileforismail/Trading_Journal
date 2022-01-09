@@ -1,16 +1,27 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 // react-router-dom
 import { Link } from "react-router-dom";
+// use axios to make requests to backend
+import axios from "axios";
 // from react-bootstrap
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import ListGroup from "react-bootstrap/ListGroup";
-// sample data
-import trades from "../trades.js";
 
 const AllTradesScreen = () => {
+	const [tradesData, setTradesData] = useState([]);
+
+	// get trades documents from db
+	useEffect(() => {
+		const fetchAllTrades = async () => {
+			const { data } = await axios.get("http://localhost:4000/api/trades/");
+			setTradesData(data);
+		};
+		fetchAllTrades();
+	});
+
 	return (
 		<Container>
 			<Row className="justify-content-center">
@@ -37,7 +48,7 @@ const AllTradesScreen = () => {
 						</ListGroup.Item>
 
 						{/* display every trade in array */}
-						{trades.map((trade) => {
+						{tradesData.map((trade) => {
 							return (
 								<ListGroup.Item key={trade.id}>
 									<Row>
