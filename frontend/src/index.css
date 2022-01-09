@@ -1,8 +1,22 @@
 main {
-	min-height: 80vh;
-	position: relative;
+	min-height: 85.9vh;
+	/* position: relative; */
 }
 
-footer .container {
-	display: block !important;
+footer {
+	/* position: absolute; */
+	margin: 2rem 0 0 0;
+	text-align: center;
+	bottom: 0;
+	width: 100%;
+}
+
+/* row in footer */
+footer .row {
+	margin: 0;
+}
+
+footer p {
+	padding: 10px 0 10px 0;
+	margin-bottom: 0px;
 }
