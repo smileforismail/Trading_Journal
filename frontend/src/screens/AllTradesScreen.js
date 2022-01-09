@@ -55,7 +55,7 @@ const AllTradesScreen = () => {
 										<Col className="text-start">{trade.profit > 0 ? "Profit" : "Loss"}</Col>
 										<Col className="text-center">{trade.date}</Col>
 										<Col className="text-end">
-											<Link to={`/trades/${trade.id}`}>View</Link>
+											<Link to={`/trades/${trade._id}`}>View</Link>
 										</Col>
 									</Row>
 								</ListGroup.Item>
