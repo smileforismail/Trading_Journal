@@ -32,6 +32,6 @@ const tradeSchema = new mongoose.Schema({
 });
 
 // make model for db
-const Trade = new mongoose.Model("Trade", tradeSchema);
+const Trade = new mongoose.model("Trade", tradeSchema);
 
 export default Trade;
