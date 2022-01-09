@@ -10,15 +10,20 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
+import Toast from "react-bootstrap/Toast";
 
 const NewEntryScreen = () => {
+	// state for toast component
+	const [showToast, setShowToast] = useState(false);
+	// set when toggle is called
+	const toggleShowToast = () => setShowToast(!showToast);
+
 	const [tradeData, setTradeData] = useState({
 		date: "",
 		accountBalance: "",
 		currencyPair: "",
 		type: "",
 		profit: "",
-		return: "",
 		comment: "",
 	});
 
@@ -40,9 +45,25 @@ const NewEntryScreen = () => {
 	const handleClick = (event) => {
 		event.preventDefault();
 
-		// send data to backend
+		// check if all keys have a value
+		let thumbsUp = false;
 		const sendData = async () => {
-			await axios.post("http://localhost:4000/api/trades/create", tradeData);
+			for (var key in tradeData) {
+				if (tradeData[key] === "") {
+					thumbsUp = false;
+					break;
+				} else {
+					thumbsUp = true;
+				}
+			}
+			// send data to backend if object keys have values
+			if (thumbsUp) {
+				await axios.post("http://localhost:4000/api/trades/create", tradeData);
+			} else {
+				console.log("nope");
+				// set when toggle is called
+				setShowToast(!showToast);
+			}
 		};
 		sendData();
 
@@ -91,7 +112,6 @@ const NewEntryScreen = () => {
 										</Col>
 									</Row>
 								</Form.Group>
-
 								{/* Date */}
 								<Form.Group className="mb-3">
 									<Row>
@@ -107,12 +127,11 @@ const NewEntryScreen = () => {
 										</Col>
 									</Row>
 								</Form.Group>
-
 								{/* Currency pair */}
 								<Form.Group className="mb-3">
 									<Row>
 										<Col>
-											<Form.Label>Currency Pair:</Form.Label>
+											<Form.Label>Pair:</Form.Label>
 
 											<Form.Select
 												onChange={handleChange}
@@ -128,7 +147,6 @@ const NewEntryScreen = () => {
 										</Col>
 									</Row>
 								</Form.Group>
-
 								{/* Type */}
 								<Form.Group className="mb-3">
 									<Row>
@@ -143,7 +161,6 @@ const NewEntryScreen = () => {
 										</Col>
 									</Row>
 								</Form.Group>
-
 								{/* Profit */}
 								<Form.Group className="mb-3">
 									<Row>
@@ -159,7 +176,6 @@ const NewEntryScreen = () => {
 										</Col>
 									</Row>
 								</Form.Group>
-
 								{/* Comment */}
 								<Form.Group className="mb-4">
 									<Row>
@@ -169,18 +185,29 @@ const NewEntryScreen = () => {
 												onChange={handleChange}
 												as={"textarea"}
 												rows="3"
-												placeholder="comment about trade..."
+												placeholder="reason for entry..."
 												name="comment"
 												value={tradeData.comment}
 											/>
 										</Col>
 									</Row>
 								</Form.Group>
-
 								<div class="d-grid gap-2">
 									<Button class="btn btn-primary" type="submit" onClick={handleClick}>
 										Add Entry
 									</Button>
+								</div>
+
+								{/* toast that appears when button is clicked */}
+
+								<div class="position-absolute top-50 start-50 translate-middle">
+									<Toast show={showToast} onClose={toggleShowToast}>
+										<Toast.Header className="text-warning bg-dark">
+											<strong className="me-auto">Error</strong>
+											<small>Now</small>
+										</Toast.Header>
+										<Toast.Body className="text-center text-warning">Fill in all Fields</Toast.Body>
+									</Toast>
 								</div>
 							</Form>
 						</Card.Body>

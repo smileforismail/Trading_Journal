@@ -26,8 +26,12 @@ const tradeSchema = new mongoose.Schema({
 		type: Number,
 		required: true,
 	},
+	chartImage: {
+		type: String,
+	},
 	comment: {
 		type: String,
+		required: true,
 	},
 });
 
