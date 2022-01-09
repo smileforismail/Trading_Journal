@@ -3,7 +3,7 @@ import connectToDatabase from "./config/db.js";
 // import model
 import tradeModel from "./models/tradeModel.js";
 // import sample data
-import trades from "trades.js";
+import trades from "./trades.js";
 
 // connect to db using connection file
 connectToDatabase();
