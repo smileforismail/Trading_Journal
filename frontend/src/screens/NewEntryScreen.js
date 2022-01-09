@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // react-router-dom
 import { Link } from "react-router-dom";
 // from react-bootstrap
@@ -10,6 +10,37 @@ import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 
 const NewEntryScreen = () => {
+	const [tradeData, setTradeData] = useState({
+		date: "",
+		accountBalance: "",
+		currencyPair: "",
+		type: "",
+		profit: "",
+		return: "",
+		comment: "",
+	});
+
+	// when data is entered into formControls
+	const handleChange = (event) => {
+		const name = event.target.name;
+		const value = event.target.value;
+
+		// set key field in object with value
+		setTradeData((prev) => {
+			return {
+				...prev,
+				[name]: value,
+			};
+		});
+	};
+
+	// when button is clicked
+	const handleClick = (event) => {
+		// event.preventDefault();
+
+		console.log(tradeData);
+	};
+
 	return (
 		<Container>
 			<Row className="justify-content-center">
@@ -33,23 +64,14 @@ const NewEntryScreen = () => {
 										<Col>
 											<Form.Label>Account Balance:</Form.Label>
 
-											<Form.Control type="number" placeholder="$0.00" name="accountBalance"/>
-										</Col>
-									</Row>
-								</Form.Group>
-
-								{/* Currency pair */}
-								<Form.Group className="mb-3">
-									<Row>
-										<Col>
-											<Form.Label>Currency Pair:</Form.Label>
-
-											<Form.Select >
-												<option value="1">AUD/USD</option>
-												<option value="2">GBP/USD</option>
-												<option value="3">EUR/USD</option>
-												<option value="4">USD/CAD</option>
-											</Form.Select>
+											<Form.Control
+												onChange={handleChange}
+												type="number"
+												placeholder="$0.00"
+												name="accountBalance"
+												value={tradeData.accountBalance}
+												required={true}
+											/>
 										</Col>
 									</Row>
 								</Form.Group>
@@ -60,7 +82,35 @@ const NewEntryScreen = () => {
 										<Col>
 											<Form.Label>Date:</Form.Label>
 
-											<Form.Control type="date" />
+											<Form.Control
+												onChange={handleChange}
+												type="date"
+												name="date"
+												value={tradeData.date}
+												required={true}
+											/>
+										</Col>
+									</Row>
+								</Form.Group>
+
+								{/* Currency pair */}
+								<Form.Group className="mb-3">
+									<Row>
+										<Col>
+											<Form.Label>Currency Pair:</Form.Label>
+
+											<Form.Select
+												onChange={handleChange}
+												name="currencyPair"
+												value={tradeData.currencyPair}
+												required
+											>
+												<option></option>
+												<option>AUD/USD</option>
+												<option>GBP/USD</option>
+												<option>EUR/USD</option>
+												<option>USD/CAD</option>
+											</Form.Select>
 										</Col>
 									</Row>
 								</Form.Group>
@@ -71,7 +121,7 @@ const NewEntryScreen = () => {
 										<Col>
 											<Form.Label>Type:</Form.Label>
 
-											<Form.Select>
+											<Form.Select onChange={handleChange} name="type" value={tradeData.type}>
 												<option value="1">Long</option>
 												<option value="2">Short</option>
 											</Form.Select>
@@ -84,7 +134,14 @@ const NewEntryScreen = () => {
 									<Row>
 										<Col>
 											<Form.Label>Profit:</Form.Label>
-											<Form.Control type="number" placeholder="$0.00" />
+											<Form.Control
+												onChange={handleChange}
+												type="number"
+												placeholder="$0.00"
+												name="profit"
+												value={tradeData.profit}
+												required={true}
+											/>
 										</Col>
 									</Row>
 								</Form.Group>
@@ -93,11 +150,14 @@ const NewEntryScreen = () => {
 								<Form.Group className="mb-3">
 									<Row>
 										<Col>
-											<Form.Label>Note:</Form.Label>
+											<Form.Label>Comment:</Form.Label>
 											<Form.Control
+												onChange={handleChange}
 												as={"textarea"}
 												rows="3"
 												placeholder="comment about trade..."
+												name="comment"
+												value={tradeData.comment}
 												required={true}
 											/>
 										</Col>
@@ -105,7 +165,7 @@ const NewEntryScreen = () => {
 								</Form.Group>
 
 								<div class="d-grid gap-2">
-									<Button class="btn btn-primary" type="submit">
+									<Button class="btn btn-primary" type="submit" onClick={handleClick}>
 										Add Entry
 									</Button>
 								</div>
