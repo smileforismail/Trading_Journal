@@ -1,5 +1,3 @@
-import mongoose from "mongoose";
-import "colors";
 // file to connect to db
 import connectToDatabase from "./config/db.js";
 // import model
@@ -14,9 +12,9 @@ connectToDatabase();
 const importData = async () => {
 	try {
 		await tradeModel.insertMany(trades);
-		console.log(`\nSuccessfully added to database\n`.green.inverse);
+		console.log(`\nSuccessfully added to database\n`);
 	} catch (error) {
-		console.log(`\nError inserting to db: ${error}\n`.red.inverse);
+		console.log(`\nError inserting to db: ${error}\n`);
 	}
 };
 
@@ -24,9 +22,9 @@ const importData = async () => {
 const deleteData = async () => {
 	try {
 		await tradeModel.deleteMany();
-		console.log(`\nSuccessfully deleted from database\n`.red.bgGreen);
+		console.log(`\nSuccessfully deleted from database\n`);
 	} catch (error) {
-		console.log(`\nError inserting to db: ${error}\n`.red.inverse);
+		console.log(`\nError inserting to db: ${error}\n`);
 	}
 };
 
