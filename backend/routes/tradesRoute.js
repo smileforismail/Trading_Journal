@@ -48,7 +48,12 @@ router.post("/create", async (req, res) => {
 // @route POST api/notes/create
 // @access Public
 router.get("/", async (req, res) => {
-	res.send("awe");
+	try {
+		const trades = await tradeModel.find();
+		res.json(trades);
+	} catch (error) {
+		console.log("\nError getting data from DB");
+	}
 });
 
 export default router;
