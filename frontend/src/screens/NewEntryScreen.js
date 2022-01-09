@@ -44,7 +44,7 @@ const NewEntryScreen = () => {
 	return (
 		<Container>
 			<Row className="justify-content-center">
-				<Col className="col-8">
+				<Col className="col-lg-8 col-md-10">
 					{/* Back button */}
 					<Link to={"/"}>
 						<Button type="button" className="btn btn-dark btn-lg rounded-0 mt-4">

@@ -9,10 +9,10 @@ const HomeTable = () => {
 	return (
 		<Container>
 			<Row className=" mt-5 mb-4 justify-content-center">
-				<Col className="col-8">
+				<Col className="col-lg-8 col-md-10">
 					<h1 className="text-center">Track Record</h1>
 
-					<Table className="table-bordered table-striped table-sm">
+					<Table className="table-bordered table-striped table-sm mt-4">
 						<thead className="table-dark">
 							<tr>
 								<th></th>
