@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 // react-router-dom
 import { Link } from "react-router-dom";
+// use axios to make requests to backend
+import axios from "axios";
 // from react-bootstrap
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -36,9 +38,24 @@ const NewEntryScreen = () => {
 
 	// when button is clicked
 	const handleClick = (event) => {
-		// event.preventDefault();
+		event.preventDefault();
 
-		console.log(tradeData);
+		// send data to backend
+		const sendData = async () => {
+			await axios.post("http://localhost:4000/api/trades/create", tradeData);
+		};
+		sendData();
+
+		// clear form after sending data
+		setTradeData({
+			date: "",
+			accountBalance: "",
+			currencyPair: "",
+			type: "",
+			profit: "",
+			return: "",
+			comment: "",
+		});
 	};
 
 	return (
@@ -70,7 +87,6 @@ const NewEntryScreen = () => {
 												placeholder="$0.00"
 												name="accountBalance"
 												value={tradeData.accountBalance}
-												required={true}
 											/>
 										</Col>
 									</Row>
@@ -87,7 +103,6 @@ const NewEntryScreen = () => {
 												type="date"
 												name="date"
 												value={tradeData.date}
-												required={true}
 											/>
 										</Col>
 									</Row>
@@ -103,7 +118,6 @@ const NewEntryScreen = () => {
 												onChange={handleChange}
 												name="currencyPair"
 												value={tradeData.currencyPair}
-												required
 											>
 												<option></option>
 												<option>AUD/USD</option>
@@ -122,8 +136,9 @@ const NewEntryScreen = () => {
 											<Form.Label>Type:</Form.Label>
 
 											<Form.Select onChange={handleChange} name="type" value={tradeData.type}>
-												<option value="1">Long</option>
-												<option value="2">Short</option>
+												<option></option>
+												<option>Long</option>
+												<option>Short</option>
 											</Form.Select>
 										</Col>
 									</Row>
@@ -140,7 +155,6 @@ const NewEntryScreen = () => {
 												placeholder="$0.00"
 												name="profit"
 												value={tradeData.profit}
-												required={true}
 											/>
 										</Col>
 									</Row>
@@ -158,7 +172,6 @@ const NewEntryScreen = () => {
 												placeholder="comment about trade..."
 												name="comment"
 												value={tradeData.comment}
-												required={true}
 											/>
 										</Col>
 									</Row>
