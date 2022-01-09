@@ -29,9 +29,9 @@ const deleteData = async () => {
 };
 
 if (process.argv[2] === "-D") {
-	console.log("Nah Chief!\nNo deleing data right now");
-	// deleteData();
+	// console.log("Nah Chief!\nNo deleing data right now");
+	deleteData();
 } else {
-	console.log("Yes Chief!\n");
-	// importData();
+	// console.log("Yes Chief!\n");
+	importData();
 }
