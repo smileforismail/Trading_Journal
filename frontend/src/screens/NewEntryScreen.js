@@ -146,8 +146,8 @@ const NewEntryScreen = () => {
 									</Row>
 								</Form.Group>
 
-								{/* Note */}
-								<Form.Group className="mb-3">
+								{/* Comment */}
+								<Form.Group className="mb-4">
 									<Row>
 										<Col>
 											<Form.Label>Comment:</Form.Label>
