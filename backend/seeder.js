@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 import "colors";
 // file to connect to db
-import connectToDatabase from "../config/db.js";
+import connectToDatabase from "./config/db.js";
 // import model
-import tradeModel from "../models/tradeModel.js";
+import tradeModel from "./models/tradeModel.js";
 // import sample data
 import trades from "trades.js";
 

@@ -1,7 +1,7 @@
 import express from "express";
 import "colors";
 // file to connect to db
-import connectToDatabase from "../config/db.js";
+import connectToDatabase from "./config/db.js";
 
 // set-up express
 const app = express();
@@ -15,7 +15,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(4000, () => {
-	console.log(
-		`Server running on port ${process.env.PORT} in ${process.env.NODE_ENV} mode`.green.inverse
-	);
+	console.log("Server running on port 4000 in development mode".green.inverse);
 });
