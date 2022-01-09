@@ -1,18 +1,17 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import "colors";
 
-// set-up dotenv
 dotenv.config();
 
-// connect to mongoDB
-connectToDatabase = async () => {
+// function that make connection to mongodb
+
+const dbConnection = async () => {
 	try {
-		await mongoose.connect(process.env.MONGODB);
-		console.log("\nSuccessfully connected to mongoDB\n".green.bold);
+		const conn = await mongoose.connect(process.env.MONGODB);
+		console.log(`MongoDb Connection: ${conn.connection.host}`);
 	} catch (error) {
-		console.log("\nError connecting to mongoDB\n".red.bold);
+		console.log(`Error connection to db: ${error}`);
 	}
 };
 
-export default connectToDatabase;
+export default dbConnection;

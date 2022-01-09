@@ -6,14 +6,14 @@
 	"type": "module",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "nodemon backend/server.js",
 		"client": "npm start --prefix frontend",
-		"server": "nodemon backend/server.js",
+		"server": "nodemon backend/server",
 		"dev": "concurrently \"npm run server\" \"npm run client\""
 	},
 	"author": "ismail",
 	"license": "ISC",
 	"dependencies": {
-		"colors": "^1.4.1",
 		"dotenv": "^10.0.0",
 		"express": "^4.17.2",
 		"mongoose": "^6.1.5"
