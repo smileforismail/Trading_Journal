@@ -1,23 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // react-router-dom
 import { Link, useParams } from "react-router-dom";
-// sampleDate
-import trades from "../trades.js";
 // from react-bootstrap
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/esm/Table";
+import axios from "axios";
 const SingleTradeScreen = () => {
 	// get the id parameter in the uri path
 	const { id } = useParams();
 
-	// find trade that matches id
-	const trade = trades.find((trade) => trade.id === id);
+	const [tradeDoc, setTradeDoc] = useState({});
 
-	// calculate % return
-	const precentageReturn = ((trade.profit / trade.accountBalance) * 100).toFixed(2);
+	// get trade document that matches id from db
+	useEffect(() => {
+		const fetchData = async () => {
+			let res = await axios.get(`http://localhost:4000/api/trades/${id}`);
+			setTradeDoc(res.data);
+		};
+		fetchData();
+	});
 
 	return (
 		<Container>
@@ -34,7 +38,7 @@ const SingleTradeScreen = () => {
 					<h1 className="text-center mt-5 mb-4">Daily Analysis</h1>
 
 					{/* Trade DATE */}
-					<h4 className=" mb-2">{trade.date}</h4>
+					<h4 className=" mb-2">{tradeDoc.date}</h4>
 
 					{/* Trade data */}
 					<Table className="table-bordered table-striped table-sm">
@@ -49,11 +53,11 @@ const SingleTradeScreen = () => {
 						</thead>
 						<tbody>
 							<tr>
-								<td>{trade.accountBalance}</td>
-								<td>{trade.type}</td>
-								<td>{trade.currencyPair}</td>
-								<td>{trade.profit}</td>
-								<td>{precentageReturn}</td>
+								<td>{tradeDoc.accountBalance}</td>
+								<td>{tradeDoc.type}</td>
+								<td>{tradeDoc.currencyPair}</td>
+								<td>{tradeDoc.profit}</td>
+								<td>{tradeDoc.return}</td>
 							</tr>
 						</tbody>
 					</Table>
@@ -61,7 +65,7 @@ const SingleTradeScreen = () => {
 					{/* Trade Comment */}
 					<hr className="mt-4" />
 					<h4>Comment</h4>
-					<p>{trade.comment}</p>
+					<p>{tradeDoc.comment}</p>
 					<hr />
 				</Col>
 			</Row>
