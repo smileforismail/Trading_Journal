@@ -17,7 +17,7 @@ const HomeScreen = () => {
 				<Container>
 					<Row className="pt-4">
 						<Col className="text-end">
-							<Link to="/newEntry">
+							<Link to="/new-entry">
 								<Button type="button" className="btn rounded-0">
 									Add New Trade
 								</Button>
