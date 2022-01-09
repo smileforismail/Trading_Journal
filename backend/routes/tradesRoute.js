@@ -19,7 +19,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 // @access Public
 router.post("/create", async (req, res) => {
 	// deconstruct object
-	const { accountBalance, date, currencyPair, type, profit, comment } = req.body;
+	const { accountBalance, date, currencyPair, type, profit, chartImage, comment } = req.body;
 
 	// calculate return %
 	const precentageReturn = ((profit / accountBalance) * 100).toFixed(2);
@@ -32,6 +32,7 @@ router.post("/create", async (req, res) => {
 		currencyPair,
 		profit,
 		return: precentageReturn,
+		chartImage,
 		comment,
 	});
 

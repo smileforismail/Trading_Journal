@@ -24,6 +24,7 @@ const NewEntryScreen = () => {
 		currencyPair: "",
 		type: "",
 		profit: "",
+		chartImage: "",
 		comment: "",
 	});
 
@@ -74,7 +75,7 @@ const NewEntryScreen = () => {
 			currencyPair: "",
 			type: "",
 			profit: "",
-			return: "",
+			chartImage: "",
 			comment: "",
 		});
 	};
@@ -172,6 +173,20 @@ const NewEntryScreen = () => {
 												placeholder="$0.00"
 												name="profit"
 												value={tradeData.profit}
+											/>
+										</Col>
+									</Row>
+								</Form.Group>
+								{/* Chart image */}
+								<Form.Group className="mb-3">
+									<Row>
+										<Col>
+											<Form.Label>Chart Image:</Form.Label>
+											<Form.Control
+												onChange={handleChange}
+												placeholder="source url"
+												name="chartImage"
+												value={tradeData.chartImage}
 											/>
 										</Col>
 									</Row>

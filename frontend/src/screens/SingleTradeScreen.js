@@ -7,6 +7,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/esm/Table";
+import Image from "react-bootstrap/Image";
 import axios from "axios";
 const SingleTradeScreen = () => {
 	// get the id parameter in the uri path
@@ -66,7 +67,13 @@ const SingleTradeScreen = () => {
 					<hr className="mt-4" />
 					<h4>Comment</h4>
 					<p>{tradeDoc.comment}</p>
-					<hr />
+					<hr className="mt-4" />
+
+					{/* Chart Image */}
+					<h4>Chart Image</h4>
+					<a href={tradeDoc.chartImage}>
+						<Image fluid src={tradeDoc.chartImage} />
+					</a>
 				</Col>
 			</Row>
 		</Container>
