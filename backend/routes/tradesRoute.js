@@ -45,7 +45,7 @@ router.post("/create", async (req, res) => {
 });
 
 // @desc Fetch trades from db
-// @route POST api/notes/create
+// @route POST api/trades/
 // @access Public
 router.get("/", async (req, res) => {
 	try {
@@ -53,6 +53,21 @@ router.get("/", async (req, res) => {
 		res.json(trades);
 	} catch (error) {
 		console.log("\nError getting data from DB");
+	}
+});
+
+// @desc Fetch single trade doc from db
+// @route POST api/trades/:id
+// @access Public
+router.get("/:id", async (req, res) => {
+	const id = req.params.id;
+
+	const tradeDoc = await tradeModel.findById(id);
+
+	if (tradeDoc) {
+		res.json(tradeDoc);
+	} else {
+		res.status(404).json({ message: "tradeDoc not found" });
 	}
 });
 
