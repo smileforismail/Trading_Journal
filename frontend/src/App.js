@@ -19,7 +19,7 @@ function App() {
 			<main>
 				<Routes>
 					<Route exact path="/" element={<HomeScreen />} />
-					<Route path="/newEntry" element={<NewEntryScreen />} />
+					<Route path="/new-entry" element={<NewEntryScreen />} />
 					<Route path="/trades" element={<AllTradesScreen />} />
 					<Route path="/trades/:id" element={<SingleTradeScreen />} />
 				</Routes>
