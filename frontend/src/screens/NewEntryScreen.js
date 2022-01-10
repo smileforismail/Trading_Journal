@@ -142,6 +142,7 @@ const NewEntryScreen = () => {
 												<option></option>
 												<option>AUD/USD</option>
 												<option>GBP/USD</option>
+												<option>USD/CHF</option>
 												<option>EUR/USD</option>
 												<option>USD/CAD</option>
 											</Form.Select>
