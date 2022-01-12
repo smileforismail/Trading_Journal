@@ -140,11 +140,12 @@ const NewEntryScreen = () => {
 												value={tradeData.currencyPair}
 											>
 												<option></option>
-												<option>AUD/USD</option>
-												<option>GBP/USD</option>
-												<option>USD/CHF</option>
 												<option>EUR/USD</option>
+												<option>GBP/USD</option>
+												<option>AUD/USD</option>
 												<option>USD/CAD</option>
+												<option>USD/JPY</option>
+												<option>USD/CHF</option>
 											</Form.Select>
 										</Col>
 									</Row>
